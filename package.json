@@ -4,6 +4,7 @@
   "description": "A minimal yet complete MessagePack implementation for JavaScript. msgpack.org[JavaScript]",
   "main": "msgpack.js",
   "scripts": {
+    "dev": "DEBUG=hsp nodemon ./__tests__/integration.js",
     "test": "node msgpack-tests.js"
   },
   "repository": {
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ygoe/msgpack.js/issues"
   },
-  "homepage": "https://github.com/ygoe/msgpack.js#readme"
+  "homepage": "https://github.com/ygoe/msgpack.js#readme",
+  "devDependencies": {
+    "debug": "^4.1.1"
+  }
 }

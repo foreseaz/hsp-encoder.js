@@ -1,10 +1,6 @@
-# msgpack.js
+# hashstablepack.js
 
-This is a [MessagePack](https://msgpack.org) codec written in JavaScript for web browsers (including IE 11). Support for JavaScript servers like Node.js is unknown because I’m not using those, but I see no reason why it shouldn’t work.
-
-It is compact but still fully-featured. This library supports the complete [MessagePack specification](https://github.com/msgpack/msgpack/blob/master/spec.md) released on 2017-08-09, including date/time values. No other extension types are implemented in this library, it’s only the standard types which is perfectly fine for interoperability with MessagePack codecs in other programming languages.
-
-I’m using the [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp/) library on the server side in my .NET applications.
+This is a [HashStablePack](https://github.com/CovenantSQL/HashStablePack/blob/master/spec.md) codec written in JavaScript ported from ygoe's well-written [msgpack.js](https://github.com/ygoe/msgpack.js). Because HashStablePack adds the content deterministic feature to MessagePack, and this js lib aims to support the js code generated, so a new repo is setup instead of fork from the original repo.
 
 ## MessagePack
 
@@ -52,14 +48,8 @@ var encodedBytes = serializeMsgPack(sourceData);
 var decodedData = deserializeMsgPack(encodedBytes);
 ```
 
-Include the JavaScript file into your HTML document like this:
-
-```html
-<script src="msgpack.min.js"></script>
-```
-
-You can use the codec functions after loading the script. No additional configuration required.
+## Credit
+Thanks ygoe's concise and well-written [msgpack.js](https://github.com/ygoe/msgpack.js)
 
 ## License
-
 [MIT license](https://github.com/ygoe/msgpack.js/blob/master/LICENSE)

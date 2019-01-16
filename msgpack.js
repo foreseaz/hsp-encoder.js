@@ -176,7 +176,9 @@
 			appendBytes([0xdf, length >>> 24, length >>> 16, length >>> 8, length]);
 
 		for (let key in data) {
-			append(key);
+			// HashStablePack remove keys for hash stability
+			// ref: https://github.com/CovenantSQL/HashStablePack/blob/master/spec.md
+			// append(key);
 			append(data[key]);
 		}
 	}
@@ -371,7 +373,7 @@ function deserializeMsgPack(array) {
 		if (size < 0) size = readUInt(lengthSize);
 		let data = {};
 		while (size-- > 0) {
-			let key = read();
+			// let key = read();
 			data[key] = read();
 		}
 		return data;
@@ -477,4 +479,9 @@ function deserializeMsgPack(array) {
 		}
 		return str;
 	}
+}
+
+module.exports = {
+	serializeMsgPack,
+	deserializeMsgPack
 }
